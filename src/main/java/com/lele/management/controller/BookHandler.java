@@ -3,6 +3,7 @@ package com.lele.management.controller;
 import com.lele.management.entity.Book;
 import com.lele.management.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
@@ -41,5 +42,10 @@ public class BookHandler {
     public String deleteBook(@PathVariable(name = "id") Integer id){
         bookRepository.deleteById(id);
         return "sucessful";
+    }
+
+    @Bean
+    public Book getBook(){
+        return new Book();
     }
 }
